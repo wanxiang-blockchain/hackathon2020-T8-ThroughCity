@@ -1,0 +1,14 @@
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.card-wrapper {
+  background-color: #fff;
+  margin: 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 12px #ebedf0;
+}

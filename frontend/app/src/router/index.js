@@ -2,20 +2,18 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-
-
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: '首页',
     component: Home
   },
   {
-    path: '/vicinity',
-    name: 'Vicinity',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/my',
+    name: '我的',
+    component: () => import(/* webpackChunkName: "about" */ '../views/My.vue')
   }
 ]
 
