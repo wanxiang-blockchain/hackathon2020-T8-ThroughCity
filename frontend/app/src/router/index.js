@@ -14,6 +14,21 @@ const routes = [
     path: '/my',
     name: '我的',
     component: () => import(/* webpackChunkName: "about" */ '../views/My.vue')
+  },
+  {
+    path: '/recharge',
+    name: '充值',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Recharge.vue')
+  },
+  {
+    path: '/payment',
+    name: '水电费',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Payment.vue')
+  },
+  {
+    path: '/consume',
+    name: '转账',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Consume.vue')
   }
 ]
 

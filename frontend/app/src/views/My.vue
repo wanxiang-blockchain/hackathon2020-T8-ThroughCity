@@ -22,7 +22,7 @@
     </div>
 
     <div class="card-wrapper">
-      <van-cell title="企业信息" is-link />
+      <van-cell title="合同信息" is-link />
       <van-cell title="积分使用记录" is-link />
     </div>
     <div class="card-wrapper">

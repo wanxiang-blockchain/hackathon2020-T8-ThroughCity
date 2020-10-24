@@ -32,14 +32,30 @@
         </ul>
       </div>
     </div>
-    <h4>附近活动</h4>
+    <h4>附近</h4>
     <div class="card-wrapper">
       <ul class="">
         <li>
           <van-card desc="区块链黑客马拉松，5w大奖等你来" title="黑客马拉松" thumb="https://www.blockchainlabs.org/week2020/imgs/top2aae4.png" />
-          <van-card desc="单身员工相亲交友大会" title="你也来啦?" thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4277465734,2568548833&fm=26&gp=0.jpg" />
-          <van-card desc="30只超可爱猫咪，快带你的团队到广场撸猫" title="通联数据撸猫会" thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2307976301,4112990994&fm=26&gp=0.jpg" />
-          <van-card price="300.00" desc="知名律所受邀到园区，快给你的员工报名专利撰写培训大会" title="专利培训课程" thumb="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3955867108,3974525762&fm=26&gp=0.jpg" />
+          <van-divider />
+          <van-card
+            desc="单身员工相亲交友大会"
+            title="你也来啦?"
+            thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4277465734,2568548833&fm=26&gp=0.jpg"
+          />
+          <van-divider />
+          <van-card
+            desc="30只超可爱猫咪，快带你的团队到广场撸猫"
+            title="通联数据撸猫会"
+            thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2307976301,4112990994&fm=26&gp=0.jpg"
+          />
+          <van-divider />
+          <van-card
+            price="300.00"
+            desc="知名律所受邀到园区，快给你的员工报名专利撰写培训大会"
+            title="专利培训课程"
+            thumb="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3955867108,3974525762&fm=26&gp=0.jpg"
+          />
         </li>
       </ul>
     </div>
@@ -137,6 +153,10 @@ export default {
       margin-top: 5px;
     }
   }
+}
+
+.van-card {
+  background-color: #fff;
 }
 
 .icon-list-wrapper {
