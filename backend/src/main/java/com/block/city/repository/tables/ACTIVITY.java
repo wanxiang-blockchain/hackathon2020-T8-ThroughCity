@@ -7,7 +7,7 @@ package com.block.city.repository.tables;
  * Date        : 2020-10-24 21:59:04
  * Description : auto generated
  */
-public class COMPANY {
+public class ACTIVITY {
 
     /**
      * primary
@@ -15,33 +15,43 @@ public class COMPANY {
     public static final String ID = "id";
 
     /**
-     * 企业名称
+     * 活动名称
      */
     public static final String NAME = "name";
 
     /**
-     * 积分余额
+     * 积分
      */
     public static final String AMOUNT = "amount";
 
     /**
-     * 起租日期
+     * 
      */
-    public static final String RENT_START = "rent_start";
+    public static final String START_DATE = "start_date";
 
     /**
-     * 合同时长
+     * 
      */
-    public static final String RENT_YEARS = "rent_years";
+    public static final String END_DATE = "end_date";
 
     /**
-     * 地址
+     * 创建时间
+     */
+    public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 公司名称
+     */
+    public static final String COMPANY_NAME = "company_name";
+
+    /**
+     * 活动地点
      */
     public static final String ADDRESS = "address";
 
     /**
-     * 公钥
+     * 
      */
-    public static final String PUB_KEY = "pub_key";
+    public static final String CONTENT = "content";
 
 }

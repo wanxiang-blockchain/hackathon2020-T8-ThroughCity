@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.Data;
@@ -17,29 +18,23 @@ import lombok.Data;
  * Description : auto generated entity
  */
 @Data
-@TableName("coin_consume_detail")
-public class CoinConsumeDetailEntity {
+@TableName("activity")
+public class ActivityEntity {
 
     /**
-     * primary key
+     * primary
      */
     @TableId(value = "id", type = IdType.ID_WORKER)
     private Long id;
 
     /**
-     * 积分来源公司id
+     * 活动名称
      */
-    @TableField("from_company_id")
-    private Long fromCompanyId;
+    @TableField("name")
+    private String name;
 
     /**
-     * 积分目标公司id
-     */
-    @TableField("to_company_id")
-    private Long toCompanyId;
-
-    /**
-     * 消费数量
+     * 积分
      */
     @TableField("amount")
     private Long amount;
@@ -47,13 +42,37 @@ public class CoinConsumeDetailEntity {
     /**
      * 
      */
-    @TableField("remark")
-    private String remark;
+    @TableField("start_date")
+    private LocalDate startDate;
 
     /**
-     * 消费时间
+     * 
+     */
+    @TableField("end_date")
+    private LocalDate endDate;
+
+    /**
+     * 创建时间
      */
     @TableField("create_time")
     private LocalDateTime createTime;
+
+    /**
+     * 公司名称
+     */
+    @TableField("company_name")
+    private String companyName;
+
+    /**
+     * 活动地点
+     */
+    @TableField("address")
+    private String address;
+
+    /**
+     * 
+     */
+    @TableField("content")
+    private String content;
 
 }

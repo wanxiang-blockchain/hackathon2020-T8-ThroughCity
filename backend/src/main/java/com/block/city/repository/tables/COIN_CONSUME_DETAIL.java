@@ -4,7 +4,7 @@ package com.block.city.repository.tables;
  * JDK         : 1.8
  * ProjectName : through-city
  * Author      : city
- * Date        : 2020-10-24 21:09:53
+ * Date        : 2020-10-24 21:59:04
  * Description : auto generated
  */
 public class COIN_CONSUME_DETAIL {
