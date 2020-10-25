@@ -118,6 +118,7 @@ function Home() {
 				onCancel={addCompany}
 				visible={visible}
 				title="新增活动"
+				destroyOnClose={true}
 				confirmLoading={confirmLoading}
 			>
 				<Form form={form}>
