@@ -36,46 +36,33 @@
             </li>
           </ul>
         </div>
-        <h4>数字园区</h4>
-        <div class="card-wrapper">
-          <div class="icon-list-wrapper">
-            <ul class="icon-list">
-              <li class="item" v-for="item in park" :key="item.name">
-                <svg class="icon" aria-hidden="true">
-                  <use :xlink:href="item.icon" />
-                </svg>
-                <span class="text">{{ item.name }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <h4>积分服务</h4>
-        <div class="card-wrapper">
-          <div class="icon-list-wrapper">
-            <ul class="icon-list">
-              <li class="item" v-for="item in token" :key="item.name">
-                <svg class="icon" aria-hidden="true">
-                  <use :xlink:href="item.icon" />
-                </svg>
-                <span class="text">{{ item.name }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <h4>附近</h4>
-        <div class="card-wrapper">
-          <ul class>
-            <li v-for="item in activity" :key="item.name">
-              <van-card
-                :price="item.amount"
-                :desc="item.content"
-                :title="item.name"
-                thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2307976301,4112990994&fm=26&gp=0.jpg"
-              />
-              <van-divider />
+      </div>
+      <h4>积分服务</h4>
+      <div class="card-wrapper">
+        <div class="icon-list-wrapper">
+          <ul class="icon-list">
+            <li class="item" v-for="item in token" :key="item.name">
+              <svg class="icon" aria-hidden="true">
+                <use :xlink:href="item.icon" />
+              </svg>
+              <span class="text">{{ item.name }}</span>
             </li>
           </ul>
         </div>
+      </div>
+      <h4>附近</h4>
+      <div class="card-wrapper">
+        <ul class>
+          <li v-for="item in activity" :key="item.name">
+            <van-card
+              :price="item.amount"
+              :desc="item.content"
+              :title="item.name"
+              thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2307976301,4112990994&fm=26&gp=0.jpg"
+            />
+            <van-divider />
+          </li>
+        </ul>
       </div>
     </van-pull-refresh>
   </div>
