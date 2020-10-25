@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/city?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&useSSL=true
+    username: city
+    password: city
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      connection-test-query: SELECT 1

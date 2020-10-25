@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        maven {
+            url = uri("${repo_path}")
+        }
+    }
+
+}
+
+rootProject.name = 'through-city'
