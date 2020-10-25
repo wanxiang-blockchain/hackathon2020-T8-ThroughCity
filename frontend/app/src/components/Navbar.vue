@@ -19,7 +19,9 @@ export default {
     }
   },
   methods: {
-    onClickLeft() {},
+    onClickLeft() {
+      this.$router.go(-1)
+    },
     onClickRight() {}
   }
 }

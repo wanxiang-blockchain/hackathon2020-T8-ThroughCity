@@ -1,9 +1,9 @@
 <template>
   <div class="card-wrapper">
     <van-form @submit="onSubmit">
-      <van-field readonly clickable name="picker" :value="value" label="接收方" placeholder="点击选择接收方" @click="showPicker = true" />
+      <van-field readonly clickable name="picker" :value="reciver" label="接收方" placeholder="点击选择接收方" @click="showPicker = true" />
       <van-popup v-model="showPicker" position="bottom">
-        <van-picker show-toolbar :columns="columns" @confirm="onConfirm" @cancel="showPicker = false" />
+        <van-picker show-toolbar :columns="companyNameList" @confirm="onConfirm" @cancel="showPicker = false" />
       </van-popup>
       <van-field v-model="token" name="token" label="积分" placeholder="请输入token数量" />
       <div style="margin: 16px">
@@ -13,18 +13,44 @@
   </div>
 </template>
 <script>
-import { getActivity } from '../api/getData'
+import { getCompanyList, consume } from '../api/getData'
 export default {
   name: '',
   data() {
     return {
       token: 0,
-      showPicker: false
+      showPicker: false,
+      reciver: null,
+      reciverId: null,
+      companyList: [],
+      columns: []
     }
   },
-  mounted() {},
+  computed: {
+    companyNameList() {
+      return this.companyList.map((item) => item.name)
+    }
+  },
+  async mounted() {
+    let res = await getCompanyList()
+    this.companyList = res.data
+  },
   methods: {
-    onSubmit() {}
+    async onSubmit() {
+      let res = await consume({
+        fromCompanyId: JSON.parse(localStorage.companyInfo).id,
+        toCompanyId: this.reciverId,
+        amount: this.token
+      })
+      this.$toast.success('积分转账成功')
+    },
+    onConfirm(val) {
+      this.reciver = val
+      this.companyList.forEach((item) => {
+        if (item.name === val) this.reciverId = item.id
+      })
+      this.showPicker = false
+    }
   }
 }
 </script>

@@ -9,6 +9,14 @@ export const getCompanyInfo = (params) =>
       .catch((err) => reject(err))
   })
 
+export const getCompanyList = (params) =>
+  new Promise((resolve, reject) => {
+    axios
+      .post(APP_INFO.getCompanyList, params)
+      .then((res) => resolve(res.data))
+      .catch((err) => reject(err))
+  })
+
 export const getConsumeList = (params) =>
   new Promise((resolve, reject) => {
     axios

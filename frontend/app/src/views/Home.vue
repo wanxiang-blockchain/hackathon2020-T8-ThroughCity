@@ -28,7 +28,7 @@
       <div class="card-wrapper">
         <div class="icon-list-wrapper">
           <ul class="icon-list">
-            <li class="item" v-for="item in park" :key="item.name">
+            <li class="item" v-for="item in park" :key="item.name" @click="item.action">
               <svg class="icon" aria-hidden="true">
                 <use :xlink:href="item.icon" />
               </svg>
@@ -41,7 +41,7 @@
       <div class="card-wrapper">
         <div class="icon-list-wrapper">
           <ul class="icon-list">
-            <li class="item" v-for="item in token" :key="item.name">
+            <li class="item" v-for="item in token" :key="item.name" @click="item.action">
               <svg class="icon" aria-hidden="true">
                 <use :xlink:href="item.icon" />
               </svg>
@@ -102,7 +102,9 @@ export default {
         {
           icon: '#icon-zhuanzhang',
           name: '积分转账',
-          action: () => {}
+          action: () => {
+            this.$router.push('/consume')
+          }
         },
         {
           icon: '#icon-shuidianjiaofei',
