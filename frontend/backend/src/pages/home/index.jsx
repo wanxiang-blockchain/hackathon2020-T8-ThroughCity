@@ -7,6 +7,7 @@ function Home() {
 	const [visible, setVisible] = useState(false);
 	const [dataSource, setdataSource] = useState([]);
 	const [form] = Form.useForm();
+	const [confirmLoading, setLoading] = useState(false)
 	const columns = [
 		{
 			title: "公司名称",
@@ -74,6 +75,7 @@ function Home() {
 						rentStart: values.rentStart.format("YYYY-MM-DD"),
 					},
 				}).then((res) => {
+					setLoading(false)
 					if (res.returnCode % 1000 === 0) {
 						setVisible(!visible);
 						getList();
@@ -81,6 +83,7 @@ function Home() {
 				});
 			})
 			.catch((err) => {
+				setLoading(false)
 				console.log(err);
 			});
 	}
@@ -96,6 +99,7 @@ function Home() {
 				onCancel={addCompany}
 				visible={visible}
 				title="新建入驻企业"
+				confirmLoading={confirmLoading}
 			>
 				<Form form={form}>
 					<Form.Item
