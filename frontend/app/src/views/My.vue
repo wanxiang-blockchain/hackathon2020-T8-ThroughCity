@@ -1,39 +1,41 @@
 <template>
   <div class="about">
-    <div class="card-wrapper">
-      <div class="my-token" v-if="isLogin">
-        <div class="company">
-          <van-image round width="2rem" height="2rem" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-          <span class="company-name">{{ companyInfo.name }}</span>
+    <div v-if="isLogin">
+      <div class="card-wrapper">
+        <div class="my-token">
+          <div class="company">
+            <van-image round width="2rem" height="2rem" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+            <div class="company-name">
+              <h1>{{ companyInfo.name }}</h1>
+              <van-divider />
+              <div class="amount"><span>token：</span> {{ companyInfo.amount }}</div>
+            </div>
+          </div>
         </div>
-        <van-divider />
       </div>
-      <div v-else>
-        <div style="margin: 16px">
-          <van-button round block type="info" native-type="submit" @click="login">企业登录</van-button>
+      <div class="card-wrapper">
+        <van-cell title="账户钱包信息" is-link @click="handleShowInfo" />
+        <van-cell title="合同信息" is-link />
+        <van-cell title="积分使用记录" is-link />
+      </div>
+      <div class="card-wrapper">
+        <van-cell title="退出登录" is-link @click="logout" />
+      </div>
+      <van-action-sheet v-model="show" title="标题">
+        <div class="content">
+          <p><span class="title">账户地址: </span> {{ companyInfo.address }}</p>
+          <p><span class="title">公钥地址: </span> {{ companyInfo.pubKey }}</p>
+          <p><span class="title">私钥地址: </span>**************</p>
+          <van-button round block type="info" native-type="submit" @click="login">查看私钥</van-button>
         </div>
-      </div>
+      </van-action-sheet>
     </div>
 
-    <div class="card-wrapper">
-      <van-cell title="账户钱包信息" is-link @click="handleShowInfo" />
-      <van-cell title="合同信息" is-link />
-      <van-cell title="积分使用记录" is-link />
-    </div>
-    <div class="card-wrapper">
-      <van-cell title="退出登录" is-link @click="logout" />
-    </div>
-    <van-action-sheet v-model="show" title="标题">
-      <div class="content">
-        <div>
-          <h1>token余额</h1>
-          <h2>{{ companyInfo.amount }}</h2>
-        </div>
-        <p>账户地址: {{ companyInfo.address }}</p>
-        <p>公钥地址: {{ companyInfo.pubKey }}</p>
-        <p>私钥地址: {{ companyInfo.pubKey }}</p>
+    <div v-else>
+      <div style="margin: 300px 16px">
+        <van-button round block type="info" native-type="submit" @click="login">企业登录</van-button>
       </div>
-    </van-action-sheet>
+    </div>
   </div>
 </template>
 <script>
@@ -50,18 +52,28 @@ export default {
     handleShowInfo() {
       this.show = true
     },
-    async login(index) {
-      let res = await getCompanyInfo({
-        name: '测试公司'
+    login(index) {
+
+      this.toast1 = this.$toast.loading({
+        message: '正在获取链上信息...',
+        forbidClick: true
       })
-      this.companyInfo = res.data
-      this.isLogin = true
-      localStorage.isLogin = true
-      localStorage.companyInfo = JSON.stringify(this.companyInfo)
+
+      setTimeout(async () => {
+        this.toast1.clear()
+        let res = await getCompanyInfo({
+          name: '测试公司'
+        })
+        this.companyInfo = res.data
+        this.isLogin = true
+        localStorage.isLogin = true
+        localStorage.companyInfo = JSON.stringify(this.companyInfo)
+      }, 1000)
     },
     async logout() {
       this.isLogin = false
       localStorage.isLogin = false
+      this.companyInfo = {}
     }
   }
 }
@@ -79,10 +91,20 @@ export default {
     display: flex;
 
     .company-name {
+      width: 150px;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       margin-left: 50px;
-      line-height: 75px;
       font-size: 20px;
       font-weight: 600;
+
+      .amount {
+        span {
+          font-size: 16px;
+        }
+      }
     }
   }
 }
@@ -93,7 +115,20 @@ export default {
 }
 
 .content {
-  padding: 16px 16px 160px;
-  font-size 14px;
+  padding: 16px 16px 30px;
+  font-size: 14px;
+  overflow: hidden;
+
+  p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 18px;
+  }
 }
 </style>

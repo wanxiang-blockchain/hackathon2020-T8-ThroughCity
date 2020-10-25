@@ -12,3 +12,7 @@
   overflow: hidden;
   box-shadow: 0 8px 12px #ebedf0;
 }
+
+.van-toast__text{
+  font-size: 14px !important;
+}

@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <van-notice-bar left-icon="volume-o" text="In Blokchcain We Trust" />
     <div class="card-wrapper">
       <van-swipe class="my-swipe" :autoplay="false" indicator-color="white">
         <van-swipe-item class="banner">
@@ -20,7 +21,6 @@
             </ul>
           </div>
         </van-swipe-item>
-        <van-swipe-item>19楼场地租用</van-swipe-item>
       </van-swipe>
     </div>
     <h4>数字园区</h4>
@@ -96,13 +96,13 @@ export default {
           action: () => {}
         },
         {
-          icon: '#icon-fangchan',
-          name: '物业缴费',
+          icon: '#icon-zhangdan',
+          name: '账单查询',
           action: () => {}
         },
         {
-          icon: '#icon-zhangdan',
-          name: '账单查询',
+          icon: '#icon-jinrongguwen',
+          name: '专属管家',
           action: () => {}
         }
       ],
@@ -115,6 +115,11 @@ export default {
         {
           icon: '#icon-shuidianjiaofei',
           name: '水电缴费',
+          action: () => {}
+        },
+        {
+          icon: '#icon-fangchan',
+          name: '物业缴费',
           action: () => {}
         },
         {
@@ -137,11 +142,7 @@ export default {
           name: '企业团餐',
           action: () => {}
         },
-        {
-          icon: '#icon-jinrongguwen',
-          name: '专属管家',
-          action: () => {}
-        },
+
         {
           icon: '#icon-gengduo',
           name: '更多服务',
@@ -182,8 +183,10 @@ export default {
       border-radius: 10px;
       overflow: hidden;
     }
-    .right{
-      padding-top 5px}
+
+    .right {
+      padding-top: 5px;
+    }
 
     ul {
       height: 100%;

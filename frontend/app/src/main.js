@@ -7,7 +7,6 @@ import './assets/styles/reset.css'
 import 'vant/lib/index.css'
 import './assets/styles/base.css'
 
-
 Vue.use(Vant)
 
 Vue.config.productionTip = false
