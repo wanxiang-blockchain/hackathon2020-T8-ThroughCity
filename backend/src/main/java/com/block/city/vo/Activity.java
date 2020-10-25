@@ -1,8 +1,5 @@
 package com.block.city.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -21,19 +18,16 @@ public class Activity {
     /**
      * primary
      */
-    @TableId(value = "id", type = IdType.ID_WORKER)
     private Long id;
 
     /**
      * 活动名称
      */
-    @TableField("name")
     private String name;
 
     /**
      * 积分
      */
-    @TableField("amount")
     private Long amount;
 
 
@@ -41,25 +35,21 @@ public class Activity {
     /**
      * 创建时间
      */
-    @TableField("create_time")
     private LocalDateTime createTime;
 
     /**
      * 公司名称
      */
-    @TableField("company_name")
     private String companyName;
 
     /**
      * 活动地点
      */
-    @TableField("address")
     private String address;
 
     /**
      *
      */
-    @TableField("content")
     private String content;
 
     private LocalDate startDate;
@@ -67,6 +57,5 @@ public class Activity {
     /**
      *
      */
-    @TableField("end_date")
     private LocalDate endDate;
 }

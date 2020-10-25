@@ -3,6 +3,7 @@ package com.block.city.controller;
 import com.block.city.service.CoinConsumeDetailService;
 import com.block.city.vo.CoinConsumeDetail;
 import com.block.city.vo.Company;
+import com.block.city.vo.ListConsumeDetailRequest;
 import com.wxbc.base.annotations.WxAppController;
 import com.wxbc.scaffold.common.definition.response.BaseResponse;
 import com.wxbc.scaffold.common.definition.response.ResponseFormat;
@@ -40,8 +41,8 @@ public class CoinConsumeDetailController {
 
     @ApiOperation("查询消费列表")
     @PostMapping("/coin/list-by-id")
-    public BaseResponse<List<CoinConsumeDetail>> queryConsumeList(@RequestBody Long id){
-        List<CoinConsumeDetail> list = coinConsumeDetailService.queryList(id);
+    public BaseResponse<List<CoinConsumeDetail>> queryConsumeList(@RequestBody ListConsumeDetailRequest req){
+        List<CoinConsumeDetail> list = coinConsumeDetailService.queryList(req.getId());
         return ResponseFormat.success(list);
     }
 
