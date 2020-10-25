@@ -31,7 +31,8 @@
       </van-action-sheet>
       <van-action-sheet v-model="showTokenInfo" title="账户信息">
         <div class="content">
-          <van-empty description="暂无记录" />
+          <van-empty v-if="!list.length" description="暂无记录" />
+          <van-cell v-for="item in list" title="类型：转账" :label="`转账时间：${item.createTime}`">{{ item.amount }}</van-cell>
         </div>
       </van-action-sheet>
     </div>
@@ -44,12 +45,13 @@
   </div>
 </template>
 <script>
-import { getCompanyInfo } from '../api/getData'
+import { getCompanyInfo, getConsumeList } from '../api/getData'
 export default {
   data() {
     return {
       show: false,
       showTokenInfo: false,
+      list: [],
       isLogin: localStorage.isLogin ? JSON.parse(localStorage.isLogin) : null,
       companyInfo: localStorage.companyInfo ? JSON.parse(localStorage.companyInfo) : null
     }
@@ -60,6 +62,11 @@ export default {
     },
     handleShowTokenInfo() {
       this.showTokenInfo = true
+      getConsumeList({
+        id: 1
+      }).then((res) => {
+        this.list = res.data
+      })
     },
     login(index) {
       this.toast1 = this.$toast.loading({
