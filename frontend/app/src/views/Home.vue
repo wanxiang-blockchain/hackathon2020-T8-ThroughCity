@@ -53,14 +53,14 @@
       <h4>附近</h4>
       <div class="card-wrapper">
         <ul class>
-          <li v-for="item in activity" :key="item.name">
+          <li v-for="(item, index) in activity" :key="item.name">
             <van-card
               :price="item.amount"
               :desc="item.content"
               :title="item.name"
               thumb="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2307976301,4112990994&fm=26&gp=0.jpg"
             />
-            <van-divider />
+            <van-divider v-if="index !== activity.length - 1" />
           </li>
         </ul>
       </div>
@@ -164,6 +164,10 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.van-divider {
+  margin: 0;
+}
+
 .my-swipe .van-swipe-item {
   color: #fff;
   font-size: 20px;

@@ -16,7 +16,7 @@
       <div class="card-wrapper">
         <van-cell title="企业账户信息" is-link @click="handleShowInfo" />
         <van-cell title="合同信息" is-link />
-        <van-cell title="积分使用记录" is-link />
+        <van-cell title="积分使用记录" is-link @click="handleShowTokenInfo" />
       </div>
       <div class="card-wrapper">
         <van-cell title="退出登录" is-link @click="logout" />
@@ -27,6 +27,11 @@
           <p><span class="title">公钥地址: </span> {{ companyInfo.pubKey }}</p>
           <p><span class="title">私钥地址: </span>**************</p>
           <van-button round block type="info" native-type="submit">查看私钥</van-button>
+        </div>
+      </van-action-sheet>
+      <van-action-sheet v-model="showTokenInfo" title="账户信息">
+        <div class="content">
+          <van-empty description="暂无记录" />
         </div>
       </van-action-sheet>
     </div>
@@ -44,6 +49,7 @@ export default {
   data() {
     return {
       show: false,
+      showTokenInfo: false,
       isLogin: localStorage.isLogin ? JSON.parse(localStorage.isLogin) : null,
       companyInfo: localStorage.companyInfo ? JSON.parse(localStorage.companyInfo) : null
     }
@@ -52,8 +58,10 @@ export default {
     handleShowInfo() {
       this.show = true
     },
+    handleShowTokenInfo() {
+      this.showTokenInfo = true
+    },
     login(index) {
-
       this.toast1 = this.$toast.loading({
         message: '正在获取链上信息...',
         forbidClick: true

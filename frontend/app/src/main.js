@@ -4,8 +4,8 @@ import App from './App.vue'
 import router from './router'
 import Vant from 'vant'
 import './assets/styles/reset.css'
-import 'vant/lib/index.css'
 import './assets/styles/base.css'
+import 'vant/lib/index.css'
 
 Vue.use(Vant)
 
