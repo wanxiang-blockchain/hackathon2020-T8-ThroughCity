@@ -1,28 +1,39 @@
 <template>
   <div class="home">
-    <van-pull-refresh v-model="isLoading" success-text="刷新成功" @refresh="onRefresh">
-      <div class="card-wrapper">
-        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-          <van-swipe-item class="banner">
-            <div class="left">
-              <van-image
-                width="3rem"
-                height="3rem"
-                fit="cover"
-                src="https://fang-oss.haozu.com/app/index/2020/09/17/ol61af2ihi.jpg?x-oss-process=image/resize,m_fill,w_492,h_356/quality,Q_90/crop,g_center,x_0,y_0,h_356,w_492"
-              />
-            </div>
-            <div class="right">
-              <ul>
-                <li class="space">空间： 华虹国际大厦 9层</li>
-                <li>日租金： 900token</li>
-                <li>押金： 27000token</li>
-                <li>到期日： 2022-10-24日</li>
-              </ul>
-            </div>
-          </van-swipe-item>
-          <van-swipe-item>19楼场地租用</van-swipe-item>
-        </van-swipe>
+    <van-notice-bar left-icon="volume-o" text="In Blokchcain We Trust" />
+    <div class="card-wrapper">
+      <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+        <van-swipe-item class="banner">
+          <div class="left">
+            <van-image
+              width="3rem"
+              height="3rem"
+              fit="cover"
+              src="https://fang-oss.haozu.com/app/index/2020/09/17/ol61af2ihi.jpg?x-oss-process=image/resize,m_fill,w_492,h_356/quality,Q_90/crop,g_center,x_0,y_0,h_356,w_492"
+            />
+          </div>
+          <div class="right">
+            <ul>
+              <li class="space">空间： 华虹国际大厦 9层</li>
+              <li>日租金： 900token</li>
+              <li>押金： 27000token</li>
+              <li>到期日： 2022-10-24日</li>
+            </ul>
+          </div>
+        </van-swipe-item>
+      </van-swipe>
+    </div>
+    <h4>数字园区</h4>
+    <div class="card-wrapper">
+      <div class="icon-list-wrapper">
+        <ul class="icon-list">
+          <li class="item" v-for="item in park" :key="item.name">
+            <svg class="icon" aria-hidden="true">
+              <use :xlink:href="item.icon"></use>
+            </svg>
+            <span class="text">{{ item.name }}</span>
+          </li>
+        </ul>
       </div>
       <h4>数字园区</h4>
       <div class="card-wrapper">
@@ -88,13 +99,13 @@ export default {
           action: () => {}
         },
         {
-          icon: '#icon-fangchan',
-          name: '物业缴费',
+          icon: '#icon-zhangdan',
+          name: '账单查询',
           action: () => {}
         },
         {
-          icon: '#icon-zhangdan',
-          name: '账单查询',
+          icon: '#icon-jinrongguwen',
+          name: '专属管家',
           action: () => {}
         }
       ],
@@ -107,6 +118,11 @@ export default {
         {
           icon: '#icon-shuidianjiaofei',
           name: '水电缴费',
+          action: () => {}
+        },
+        {
+          icon: '#icon-fangchan',
+          name: '物业缴费',
           action: () => {}
         },
         {
@@ -129,11 +145,7 @@ export default {
           name: '企业团餐',
           action: () => {}
         },
-        {
-          icon: '#icon-jinrongguwen',
-          name: '专属管家',
-          action: () => {}
-        },
+
         {
           icon: '#icon-gengduo',
           name: '更多服务',
