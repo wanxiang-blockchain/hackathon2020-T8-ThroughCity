@@ -1,8 +1,25 @@
 <template>
   <div class="home">
     <div class="card-wrapper">
-      <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-        <van-swipe-item>浏阳楼团餐</van-swipe-item>
+      <van-swipe class="my-swipe" :autoplay="false" indicator-color="white">
+        <van-swipe-item class="banner">
+          <div class="left">
+            <van-image
+              width="3rem"
+              height="3rem"
+              fit="cover"
+              src="https://fang-oss.haozu.com/app/index/2020/09/17/ol61af2ihi.jpg?x-oss-process=image/resize,m_fill,w_492,h_356/quality,Q_90/crop,g_center,x_0,y_0,h_356,w_492"
+            />
+          </div>
+          <div class="right">
+            <ul>
+              <li class="space">空间： 华虹国际大厦 9层</li>
+              <li>日租金： 900token</li>
+              <li>押金： 27000token</li>
+              <li>到期日： 2022-10-24日</li>
+            </ul>
+          </div>
+        </van-swipe-item>
         <van-swipe-item>19楼场地租用</van-swipe-item>
       </van-swipe>
     </div>
@@ -151,6 +168,40 @@ export default {
 
     & + .card-wrapper {
       margin-top: 5px;
+    }
+  }
+
+  .banner {
+    padding: 20px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .left {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .right{
+      padding-top 5px}
+
+    ul {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        text-align: left;
+        font-size: 14px;
+        height: 16px;
+        line-height: 16px;
+
+        &.space {
+          margin-bottom: 20px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
     }
   }
 }
