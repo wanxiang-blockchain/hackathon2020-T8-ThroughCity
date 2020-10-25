@@ -7,6 +7,7 @@ function Home() {
 	const [visible, setVisible] = useState(false);
 	const [dataSource, setdataSource] = useState([]);
 	const [form] = Form.useForm();
+	const [confirmLoading, setLoading] = useState(false)
 	const columns = [
 		{
 			title: "活动名称",
@@ -79,6 +80,7 @@ function Home() {
 	function handleOk() {
 		form.validateFields()
 			.then((values) => {
+				setLoading(true)
 				console.log(values);
 				axios({
 					url: "http://172.25.2.220:8080/api/v1/city/activity/add",
@@ -92,6 +94,7 @@ function Home() {
 						endDate: values.rentDate[1].format("YYYY-MM-DD"),
 					},
 				}).then((res) => {
+					setLoading(false)
 					if (res && res.returnCode % 1000 === 0) {
 						setVisible(!visible);
 						getList();
@@ -99,6 +102,7 @@ function Home() {
 				});
 			})
 			.catch((err) => {
+				setLoading(false)
 				console.log(err);
 			});
 	}
@@ -114,6 +118,7 @@ function Home() {
 				onCancel={addCompany}
 				visible={visible}
 				title="新增活动"
+				confirmLoading={confirmLoading}
 			>
 				<Form form={form}>
 					<Form.Item
