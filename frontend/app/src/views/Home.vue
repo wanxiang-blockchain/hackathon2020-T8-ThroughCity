@@ -139,7 +139,7 @@ export default {
         },
         {
           icon: '#icon-fenzu',
-          name: '企业团餐',
+          name: '员工团餐',
           action: () => {}
         },
 
@@ -228,6 +228,11 @@ export default {
       flex-direction: column;
       justify-content: center;
       font-size: 28px;
+      transition: background 0.3s linear;
+
+      &:active, &:hover {
+        background-color: #00bcd452;
+      }
 
       .text {
         padding-top: 6px;

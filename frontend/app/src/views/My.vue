@@ -14,19 +14,19 @@
         </div>
       </div>
       <div class="card-wrapper">
-        <van-cell title="账户钱包信息" is-link @click="handleShowInfo" />
+        <van-cell title="企业账户信息" is-link @click="handleShowInfo" />
         <van-cell title="合同信息" is-link />
         <van-cell title="积分使用记录" is-link />
       </div>
       <div class="card-wrapper">
         <van-cell title="退出登录" is-link @click="logout" />
       </div>
-      <van-action-sheet v-model="show" title="标题">
+      <van-action-sheet v-model="show" title="账户信息">
         <div class="content">
           <p><span class="title">账户地址: </span> {{ companyInfo.address }}</p>
           <p><span class="title">公钥地址: </span> {{ companyInfo.pubKey }}</p>
           <p><span class="title">私钥地址: </span>**************</p>
-          <van-button round block type="info" native-type="submit" @click="login">查看私钥</van-button>
+          <van-button round block type="info" native-type="submit">查看私钥</van-button>
         </div>
       </van-action-sheet>
     </div>
